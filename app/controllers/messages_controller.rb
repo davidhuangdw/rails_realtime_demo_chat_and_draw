@@ -1,16 +1,19 @@
 class MessagesController < ApplicationController
   include ApplicationHelper
   before_action :set_message, only: [:show, :edit, :update, :destroy]
+  respond_to :json, :html
 
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+    @messages = Message.last(10)
+    respond_with @messages
   end
 
   # GET /messages/1
   # GET /messages/1.json
   def show
+    respond_with @message
   end
 
   # GET /messages/new
@@ -31,7 +34,10 @@ class MessagesController < ApplicationController
       if @message.save
         # format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.html {redirect_to root_url}
-        format.json { render :show, status: :created, location: @message }
+        format.json do
+          broadcast_json '/messages/new', ::MessageSerializer.new(@message)
+          render json:@message
+        end
         format.js { broadcast_json '/messages/new', @message }
       else
         format.html { render :new }
@@ -46,7 +52,9 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.update(message_params)
         format.html { redirect_to @message, notice: 'Message was successfully updated.' }
-        format.json { render :show, status: :ok, location: @message }
+        # format.json { render :show, status: :ok, location: @message }
+        format.json {render json:@message}
+
       else
         format.html { render :edit }
         format.json { render json: @message.errors, status: :unprocessable_entity }
@@ -60,7 +68,7 @@ class MessagesController < ApplicationController
     @message.destroy
     respond_to do |format|
       format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' }
-      format.json { head :no_content }
+      format.json #{ head :no_content }
     end
   end
 

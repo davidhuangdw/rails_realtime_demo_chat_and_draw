@@ -1,0 +1,21 @@
+.page-header
+  h1 Chat
+
+.well style='font-size:1.2em;'
+  ul.list-unstyled id=messages
+    each
+      li
+        b
+          | #{username}: &nbsp;
+        = content
+
+
+.form-group
+  .col-sm-2.col-xs-3
+    =input value=new_message.username  placeholder='username' class='form-control'
+  .col-sm-9.col-xs-9
+    =input value=new_message.content insert-newline='say' placeholder='message' class='form-control'
+  .col-sm-1
+    button.btn.btn-primary.pull-right click=say send
+
+

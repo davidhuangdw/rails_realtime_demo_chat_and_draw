@@ -1,20 +1,20 @@
-.page-header
-  %h1 Chat
-
-.well{style:'font-size:1.2em;'}
-  -#height: 200px; overflow:auto;'}
-  %ul.list-unstyled#messages
-    =render partial:'message', collection: @messages
-
-
-= form_for @new_message, url:messages_url, html:{class:'form-horizontal'}, remote:true do |f|
-  .form-group
-    .col-sm-2.col-xs-3
-      = f.text_field :username, placeholder:'username', class:'form-control'
-    .col-sm-10.col-xs-9
-      = f.text_field :content, placeholder:'message', class:'form-control'
-  .form-group.container
-    = f.submit 'send', class:'btn btn-primary'
-
-
-
+-#.page-header
+-#  %h1 Chat
+-#
+-#.well{style:'font-size:1.2em;'}
+-#  -#height: 200px; overflow:auto;'}
+-#  %ul.list-unstyled#messages
+-#    =render partial:'message', collection: @messages
+-#
+-#
+-#= form_for @new_message, url:messages_url, html:{class:'form-horizontal'}, remote:true do |f|
+-#  .form-group
+-#    .col-sm-2.col-xs-3
+-#      = f.text_field :username, placeholder:'username', class:'form-control'
+-#    .col-sm-10.col-xs-9
+-#      = f.text_field :content, placeholder:'message', class:'form-control'
+-#  .form-group.container
+-#    = f.submit 'send', class:'btn btn-primary'
+-#
+-#
+-#
