@@ -5,8 +5,9 @@
 ready = ->
   client = window.faye_client = new Faye.Client('http://localhost:9292/faye')
   client.subscribe '/messages/new', (data)->
-    eval(data)
-#    $('#messages').append(data)
-#    alert(data)
+    message = JSON.parse(data)
+    $('<li>').append($('<b>').text("#{message.username}: "))
+      .append(message.content)
+      .appendTo('#messages')
 
 $(document).on 'ready', ready

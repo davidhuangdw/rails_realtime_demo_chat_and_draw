@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  include ApplicationHelper
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   # GET /messages
@@ -31,7 +32,7 @@ class MessagesController < ApplicationController
         # format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.html {redirect_to root_url}
         format.json { render :show, status: :created, location: @message }
-        format.js
+        format.js { broadcast_json '/messages/new', @message }
       else
         format.html { render :new }
         format.json { render json: @message.errors, status: :unprocessable_entity }
