@@ -1,0 +1,28 @@
+.page-header
+  = link_to new_line_path, :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Line
+  %h1 Listing lines
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Fx
+        %th Fy
+        %th Tx
+        %th Ty
+        %th
+        %th
+        %th
+
+    %tbody
+      - @lines.each do |line|
+        %tr
+          %td= line.fx
+          %td= line.fy
+          %td= line.tx
+          %td= line.ty
+          %td= link_to 'Show', line
+          %td= link_to 'Edit', edit_line_path(line)
+          %td= link_to 'Destroy', line, :data => { confirm: 'Are you sure?' }, :method => :delete

@@ -1,3 +1,4 @@
+#= require_tree ./mixins
 #= require ./store
 #= require_tree ./models
 #= require_tree ./controllers

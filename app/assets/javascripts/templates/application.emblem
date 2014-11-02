@@ -1,2 +1,18 @@
+.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-collapse"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a href='#' class='navbar-brand' Home
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li.active
+          a href='#'  Chat
+        li
+          a href='#draw'  Draw
+
 .container
   = outlet

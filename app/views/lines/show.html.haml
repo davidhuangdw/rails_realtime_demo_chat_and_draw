@@ -1,0 +1,18 @@
+.page-header
+  = link_to lines_path, :class => 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_line_path(@line), :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show line
+
+%dl.dl-horizontal
+  %dt Fx:
+  %dd= @line.fx
+  %dt Fy:
+  %dd= @line.fy
+  %dt Tx:
+  %dd= @line.tx
+  %dt Ty:
+  %dd= @line.ty

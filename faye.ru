@@ -15,5 +15,5 @@ class ServerAuth
 end
 
 bayeux = Faye::RackAdapter.new(:mount => '/faye', :timeout => 25)
-bayeux.add_extension(ServerAuth.new)
+# bayeux.add_extension(ServerAuth.new)
 run bayeux

@@ -1,0 +1,11 @@
+= simple_form_for(@line) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :fx
+    = f.input :fy
+    = f.input :tx
+    = f.input :ty
+
+  .form-actions
+    = f.button :submit

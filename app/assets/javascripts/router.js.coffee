@@ -2,5 +2,6 @@
 
 FayeChat.Router.map ->
   @resource 'chat', path:'/'
+  @resource 'draw'
   # @resource('posts')
 
