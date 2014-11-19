@@ -4,6 +4,8 @@
 #= require faye_chat
 
 # for more details see: http://emberjs.com/guides/application/
+window.FayeClient = new Faye.Client('http://localhost:9292/faye')
+#window.FayeClient = new Faye.Client('http://10.183.12.203:9292/faye')
 window.FayeChat = Ember.Application.create
   LOG_TRANSITIONS_INTERNAL: true
 
